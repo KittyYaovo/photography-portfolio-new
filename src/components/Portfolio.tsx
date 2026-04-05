@@ -14,7 +14,6 @@ const video5 = "/videos/5.mp4";
 const video6 = "/videos/6.mp4";
 const video6b = "/videos/6b.mov";
 const video8 = "/videos/8.mp4";
-
 // YouTube视频ID
 const YOUTUBE_VIDEOS = {
   video1: 'YOUR_VIDEO1_ID',
