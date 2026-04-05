@@ -5,15 +5,15 @@ import myImage from '../assets/images/myimage.jpg';
 import video1Poster from '../assets/images/1.png';
 import video2Poster from '../assets/images/2.png';
 import animationCover from '../assets/images/3.png';
-// 导入本地视频
-import video1 from '../assets/videos/1.mp4';
-import video2 from '../assets/videos/2.mp4';
-import video3 from '../assets/videos/3.mp4';
-import video4 from '../assets/videos/4.mp4';
-import video5 from '../assets/videos/5.mp4';
-import video6 from '../assets/videos/6.mp4';
-import video6b from '../assets/videos/6b.mov';
-import video8 from '../assets/videos/8.mp4';
+// 直接使用public文件夹中的视频路径
+const video1 = "/videos/1.mp4";
+const video2 = "/videos/2.mp4";
+const video3 = "/videos/3.mp4";
+const video4 = "/videos/4.mp4";
+const video5 = "/videos/5.mp4";
+const video6 = "/videos/6.mp4";
+const video6b = "/videos/6b.mov";
+const video8 = "/videos/8.mp4";
 
 // YouTube视频ID
 const YOUTUBE_VIDEOS = {
@@ -27,7 +27,7 @@ const YOUTUBE_VIDEOS = {
 };
 
 // 始终使用本地视频文件
-const isProduction = false;
+const isProduction = true;
 
 const projects = [
   {
