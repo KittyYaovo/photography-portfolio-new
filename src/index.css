@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-neo-yellow: #FFE040;
+  --color-neo-pink: #FF80A0;
+  --color-neo-blue: #73A3FF;
+  --color-neo-green: #00E676;
+  --color-neo-black: #000000;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-neo-black selection:bg-neo-yellow selection:text-neo-black;
+    cursor: none;
+    overflow-x: hidden;
+  }
+}
+
+@utility neo-border {
+  @apply border-4 border-neo-black;
+}
+
+@utility neo-shadow {
+  @apply shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+}
+
+@utility neo-shadow-hover {
+  @apply hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[4px] hover:translate-y-[4px] transition-all;
+}
+
+@utility neo-button {
+  @apply neo-border px-6 py-3 font-black uppercase tracking-widest neo-shadow neo-shadow-hover bg-white;
+}
+
+@utility neo-card {
+  @apply neo-border p-6 neo-shadow bg-white;
+}
+
+.viewfinder-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Crosshair grid background */
+.crosshair-grid {
+  background-image: 
+    radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+}
+
+.crosshair-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Scattered parameters decoration */
+.param-decoration {
+  position: fixed;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+}
+
+/* Fine grid texture */
+.fine-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Grid coordinate markers */
+.grid-coordinates {
+  position: fixed;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+}
+
+/* Vertical text flow */
+.vertical-text-flow {
+  position: fixed;
+  right: 10px;
+  top: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  color: rgba(100, 149, 237, 0.2); /* Cornflower blue with 20% opacity */
+  pointer-events: none;
+  z-index: -1;
+  user-select: none;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  white-space: nowrap;
+}
+
+/* Scroll animation */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}

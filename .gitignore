@@ -1,0 +1,19 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# 排除视频文件
+*.mp4
+*.mov
+*.avi
+*.wmv
+*.flv
+*.mkv
+
+# 排除视频文件夹
+src/assets/videos/
