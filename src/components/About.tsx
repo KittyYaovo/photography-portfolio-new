@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Instagram, Mail, Github, MessageCircle, User, Video, X, ChevronLeft, ChevronRight } from 'lucide-react';
-// 视频文件路径 - 使用条件导入避免构建错误
-let lightingVideo;
-
-// 只在开发环境尝试导入本地视频
-if (process.env.NODE_ENV === 'development') {
-  try {
-    // 动态导入视频文件
-    lightingVideo = '../assets/videos/7.mp4';
-  } catch (error) {
-    console.log('Lighting video file not found, using placeholder');
-  }
-}
+// 直接使用public文件夹中的视频路径
+const lightingVideo = "/videos/7.mp4";
 import design1 from '../assets/images/design1.png';
 import design2 from '../assets/images/design2.png';
 import design3 from '../assets/images/design3.png';
