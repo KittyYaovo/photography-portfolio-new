@@ -5,15 +5,16 @@ import myImage from '../assets/images/myimage.jpg';
 import video1Poster from '../assets/images/1.png';
 import video2Poster from '../assets/images/2.png';
 import animationCover from '../assets/images/3.png';
-// 直接使用public文件夹中的视频路径
-const video1 = "/videos/1.mp4";
-const video2 = "/videos/2.mp4";
-const video3 = "/videos/3.mp4";
-const video4 = "/videos/4.mp4";
-const video5 = "/videos/5.mp4";
-const video6 = "/videos/6.mp4";
-const video6b = "/videos/6b.mov";
-const video8 = "/videos/8.mp4";
+// 使用阿里云OSS的视频路径
+const video1 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/AI%E7%9F%AD%E5%89%A7-%E7%9F%B3%E7%A0%B4%E5%A4%A9%E6%83%8A.mp4";
+const video2 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/AI%E7%9F%AD%E5%89%A7-%E5%AE%9D%E5%AE%9D%E4%B8%8E%E8%8B%B1%E9%9B%84%E7%8B%97.mp4";
+const video3 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/%E7%AC%AC%E4%BA%8C%E9%80%89%E6%8B%A9.mp4";
+const video4 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/%E3%80%8A%E6%88%91%E4%BB%AC%E5%85%B1%E4%BA%AB%E7%9A%84%EF%BC%8C%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E6%B5%B7%E5%B2%B8%E3%80%8B.mp4";
+const video5 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/%E5%90%91%E6%97%A5%E8%91%B5.mp4";
+const video6 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/%E9%87%87%E8%AE%BF.mp4";
+const video6b = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/%E7%BA%AA%E5%BD%95%E7%89%87.mov";
+const video8 = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/AI%E7%9F%AD%E5%89%A7-%E6%8B%A5%E6%8A%B1%E6%80%AA%E7%89%A9.mp4";
+
 // YouTube视频ID
 const YOUTUBE_VIDEOS = {
   video1: 'YOUR_VIDEO1_ID',
@@ -25,8 +26,11 @@ const YOUTUBE_VIDEOS = {
   video6b: 'YOUR_VIDEO6B_ID'
 };
 
-// 始终使用本地视频文件
-const isProduction = true;
+// 占位符视频URL（使用Vimeo的占位符视频）
+const PLACEHOLDER_VIDEO = 'https://player.vimeo.com/external/371829461.sd.mp4?s=0f6c4a3564a36883a1b0f915912f3e6363c82f4b&profile_id=164&oauth2_token_id=57447761';
+
+// 始终使用本地视频（阿里云OSS）
+const isProduction = false;
 
 const projects = [
   {
@@ -140,7 +144,7 @@ export const Portfolio = () => {
                     />
                   ) : (
                     <video 
-                      src={currentVideo === 1 ? video1 : currentVideo === 2 ? video2 : video8} 
+                      src={currentVideo === 1 ? (video1 || PLACEHOLDER_VIDEO) : currentVideo === 2 ? (video2 || PLACEHOLDER_VIDEO) : (video8 || PLACEHOLDER_VIDEO)} 
                       alt={project.title}
                       className="max-w-full max-h-full object-contain"
                       controls
@@ -162,7 +166,7 @@ export const Portfolio = () => {
                     />
                   ) : (
                     <video 
-                      src={currentVideo4 === 3 ? video3 : video4} 
+                      src={currentVideo4 === 3 ? (video3 || PLACEHOLDER_VIDEO) : (video4 || PLACEHOLDER_VIDEO)} 
                       alt={project.title}
                       className="max-w-full max-h-full object-contain"
                       controls
@@ -185,7 +189,7 @@ export const Portfolio = () => {
                   ) : (
                     <video 
                       ref={video5Ref}
-                      src={video5} 
+                      src={video5 || PLACEHOLDER_VIDEO} 
                       alt={project.title}
                       className="max-w-full max-h-full object-contain"
                       controls
@@ -207,7 +211,7 @@ export const Portfolio = () => {
                     />
                   ) : (
                     <video 
-                      src={currentVideo6 === 6 ? video6 : video6b} 
+                      src={currentVideo6 === 6 ? (video6 || PLACEHOLDER_VIDEO) : (video6b || PLACEHOLDER_VIDEO)} 
                       alt={project.title}
                       className="max-w-full max-h-full object-contain"
                       controls
