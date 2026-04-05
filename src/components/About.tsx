@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Instagram, Mail, Github, MessageCircle, User, Video, X, ChevronLeft, ChevronRight } from 'lucide-react';
-// 直接使用public文件夹中的视频路径
-const lightingVideo = "/videos/7.mp4";
+// 使用阿里云OSS的视频路径
+const lightingVideo = "https://photography-portfolio-videos.oss-cn-hangzhou.aliyuncs.com/grandMA2.mp4";
 import design1 from '../assets/images/design1.png';
 import design2 from '../assets/images/design2.png';
 import design3 from '../assets/images/design3.png';
 import design4 from '../assets/images/design4.png';
 import design5 from '../assets/images/design5.png';
 import design6 from '../assets/images/design6.png';
+
+// 占位符视频URL（使用Vimeo的占位符视频）
+const PLACEHOLDER_VIDEO = 'https://player.vimeo.com/external/371829461.sd.mp4?s=0f6c4a3564a36883a1b0f915912f3e6363c82f4b&profile_id=164&oauth2_token_id=57447761';
 
 export const About = () => {
   const [showLightingVideo, setShowLightingVideo] = useState(false);
@@ -120,7 +123,7 @@ export const About = () => {
               <div className="text-4xl font-black mb-6 text-center">MA3D舞台灯光制作</div>
               <div className="aspect-video bg-black flex items-center justify-center">
                 <video 
-                  src={lightingVideo} 
+                  src={lightingVideo || 'https://player.vimeo.com/external/371829461.sd.mp4?s=0f6c4a3564a36883a1b0f915912f3e6363c82f4b&profile_id=164&oauth2_token_id=57447761'} 
                   className="max-w-full max-h-full object-contain"
                   controls
                 />
